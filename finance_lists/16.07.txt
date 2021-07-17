@@ -1,7 +1,7 @@
+20
 16.07
 flug 86
 
 17.07
 pizza 32
-35 semmerl billa
-1
+35,20 semmerl billa

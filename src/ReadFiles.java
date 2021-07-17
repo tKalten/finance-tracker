@@ -8,16 +8,6 @@ public class ReadFiles {
 
     public ReadFiles() {
         createScanner();
-        while (sc.hasNextLine()) {
-            line = new String(sc.nextLine());
-
-            if(line.equals("1")){
-                System.out.println(line);
-            } else {
-                System.out.println("NO");
-            }
-
-        }
     }
 
     static void createScanner(){
@@ -26,6 +16,10 @@ public class ReadFiles {
         } catch (java.io.FileNotFoundException e) {
             System.out.println("File does not exist");
         }
+    }
+
+    Scanner getSc(){
+        return this.sc;
     }
 
     static void printOut() {
