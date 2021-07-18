@@ -1,17 +1,18 @@
 import java.time.LocalDate;
 import java.io.File;
+import java.util.ArrayList;
 
 
 public class Main {
 	static String financeFolder;
 	static File folder;
-	static AssignData financeData;
+	static AssignData assignFinanceData;
 	static ReadFiles financeDataIn;
 
     public static void main(String[] args) {
 		financeFolder = "test_lists";
 		folder = new File(financeFolder);
-		financeData = new AssignData();
+		assignFinanceData = new AssignData();
 
 
 
@@ -19,13 +20,15 @@ public class Main {
 
     	for (File file : folder.listFiles()) {
 			ReadFiles financeDataIn = new ReadFiles(file);
-			financeData.addFile(financeDataIn.getSc());
+			assignFinanceData.addFileToDataset(financeDataIn.getSc());
 		}
 
-    	for (Integer index : financeData.getIndex()) {
-    		System.out.println("Date: " + financeData.getDate().get(index));
-			System.out.println("Reason: "+ financeData.getReason().get(index));
-			System.out.println("Money:" + financeData.getMoney().get(index) + "\n");
+		ArrayList<DataEntry> financeData = assignFinanceData.getDataSet();
+
+    	for (DataEntry entry : financeData) {
+    		System.out.println("Date: " + entry.date);
+			System.out.println("Reason: "+ entry.reason);
+			System.out.println("Money:" + entry.money + "\n");
 		}
     }
 }

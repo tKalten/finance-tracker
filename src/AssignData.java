@@ -1,18 +1,22 @@
+import javax.xml.crypto.Data;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class AssignData extends Data{
+public class AssignData extends DataEntry{
     LocalDate tempDate;
     String tempReason;
     Float tempMoney;
     Integer tempIndex;
+    DataEntry tempEntry = new DataEntry();
+    ArrayList<DataEntry> dataSet = new ArrayList<DataEntry>();
 
 
     public AssignData(){ //default constructor
 
     }
 
-    public void addFile(Scanner sc) { //class constructor to assign each value to the corresponding data column
+    public void addFileToDataset(Scanner sc) { //class constructor to assign each value to the corresponding data column
         String year;
         tempIndex = 0;
         for (year = "20"+sc.nextLine(); sc.hasNextLine();){  //define first line of file as year
@@ -35,13 +39,19 @@ public class AssignData extends Data{
                  }
 
                  //add to the data array
-                 index.add(tempIndex);
-                 date.add(tempDate);
-                 reason.add(tempReason);
-                 money.add(tempMoney);
+                 tempEntry.date = tempDate;
+                 tempEntry.reason = tempReason;
+                 tempEntry.money = tempMoney;
+                 dataSet.add(tempEntry);
             }
         }
     }
+
+    ArrayList<DataEntry> getDataSet() {
+        return dataSet;
+    }
+
+
 }
 
 
