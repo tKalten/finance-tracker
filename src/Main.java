@@ -1,7 +1,9 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 
 public class Main {
@@ -10,26 +12,19 @@ public class Main {
 	static AssignData assignFinanceData;
 	static ReadFiles financeDataIn;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 		financeFolder = "test_lists";
 		folder = new File(financeFolder);
 		assignFinanceData = new AssignData();
 
 
-
-
-
-    	for (File file : folder.listFiles()) {
+    	for (File file : Objects.requireNonNull(folder.listFiles())) {
 			ReadFiles financeDataIn = new ReadFiles(file);
 			assignFinanceData.addFileToDataset(financeDataIn.getSc());
 		}
 
 		ArrayList<DataEntry> financeData = assignFinanceData.getDataSet();
 
-    	for (DataEntry entry : financeData) {
-    		System.out.println("Date: " + entry.getDate());
-			System.out.println("Reason: "+ entry.getReason());
-			System.out.println("Money: " + entry.getMoney() + "\n");
-		}
+    	new WriteFiles(financeData);
     }
 }

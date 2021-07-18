@@ -22,12 +22,4 @@ public class ReadFiles {
     Scanner getSc(){ //method to return scanner
         return sc;
     }
-
-    void printOut() { //method to print file in case of need
-        createScanner();
-        System.out.println("\nLetsgotprintitall:");
-        while (sc.hasNextLine()) {
-            System.out.println(sc.nextLine());
-        }
-    }
 }

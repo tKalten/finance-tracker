@@ -48,12 +48,19 @@ public class AssignData extends DataEntry{
         }
     }
 
+    public void printOut(){
+        for (DataEntry entry : dataSet) {
+            System.out.println("Date: " + entry.getDate());
+            System.out.println("Reason: "+ entry.getReason());
+            System.out.println("Money: " + entry.getMoney() + "\n");
+        }
+
+    }
+
     ArrayList<DataEntry> getDataSet() {
         Collections.sort(dataSet);
         return dataSet;
     }
-
-
 }
 
 
