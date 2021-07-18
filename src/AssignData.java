@@ -1,70 +1,47 @@
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.time.format.DateTimeParseException;
-
 
 public class AssignData extends Data{
-    String year;
-    String line;
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.M.u");
-    LocalDate date;
-    String reason;
-    Float money;
-    String[] lineArray;
-    Data data = new Data();
+    LocalDate tempDate;
+    String tempReason;
+    Float tempMoney;
+    Integer tempIndex;
 
 
-    public AssignData(Scanner sc) {
-        for (year = "20"+sc.nextLine();sc.hasNextLine();){
-            line = sc.nextLine();
-             if (isValidDate(line+"."+year)){
-                 date = LocalDate.parse(line + "." + year,this.formatter);
+    public AssignData(){ //default constructor
+
+    }
+
+    public void addFile(Scanner sc) { //class constructor to assign each value to the corresponding data column
+        String year;
+        tempIndex = 0;
+        for (year = "20"+sc.nextLine(); sc.hasNextLine();){  //define first line of file as year
+            String line = sc.nextLine();
+             if (isValidDate(line +"."+ year)){   //check if line is a valid tempDate
+                 tempDate = LocalDate.parse(line + "." + year,this.formatter); //if yes - store tempDate
              }
-             else if(!(line.equals(""))){
-                 lineArray = line.split(" ");
-                 reason = "";
+             else if(!(line.equals(""))){ // check lines which are not empty and no tempDates
+                 tempIndex++;
+                 String[] lineArray = line.split(" "); //split string at spaces
+                 tempReason = "";
                  for (String lineString : lineArray){
-                     lineString = lineString.replace(",", ".");
-                     if (isFloat(lineString)){
-                         money = Float.parseFloat(lineString);
+                     lineString = lineString.replace(",", "."); //replace , with . for correct float recognition
+                     if (isFloat(lineString)){  //check strings for float
+                         tempMoney = Float.parseFloat(lineString);
                      }
                      else{
-                         reason = reason + " " + lineString;
+                         tempReason = tempReason + " " + lineString; //combine all other strings which are not floats
                      }
                  }
-                 data.date.add(date);
-                 data.reason.add(reason);
-                 data.money.add(money);
+
+                 //add to the data array
+                 index.add(tempIndex);
+                 date.add(tempDate);
+                 reason.add(tempReason);
+                 money.add(tempMoney);
             }
         }
     }
-
-    Data getData(){
-        return this.data;
-    }
-
-    boolean isValidDate(String strDate){
-        try {LocalDate.parse(strDate,this.formatter);
-        }
-        catch (DateTimeParseException e){
-            return false;
-        }
-        return true;
-    }
-
-    boolean isFloat(String strNumber){
-        if (strNumber == null){
-            return false;
-        }
-        try {
-            Float.parseFloat(strNumber);
-        } catch (NumberFormatException nfe){
-            return false;
-        }
-        return true;
-    }
-
 }
 
 

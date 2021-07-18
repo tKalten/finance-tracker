@@ -1,4 +1,5 @@
-import java.util.stream.IntStream;
+import java.io.FileWriter;
+import java.io.File;
 
 public class WriteFiles {
 
