@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Main {
@@ -26,9 +27,9 @@ public class Main {
 		ArrayList<DataEntry> financeData = assignFinanceData.getDataSet();
 
     	for (DataEntry entry : financeData) {
-    		System.out.println("Date: " + entry.date);
-			System.out.println("Reason: "+ entry.reason);
-			System.out.println("Money:" + entry.money + "\n");
+    		System.out.println("Date: " + entry.getDate());
+			System.out.println("Reason: "+ entry.getReason());
+			System.out.println("Money: " + entry.getMoney() + "\n");
 		}
     }
 }

@@ -1,4 +1,4 @@
-21
+19
 20.06
 klopeiinersee 24,5
 33,5 wurschtsemmerl
@@ -6,3 +6,7 @@ klopeiinersee 24,5
 1.07
 essen 5
 abendessen 3
+snackbar 10
+
+20.04
+parteyyyy 25s
