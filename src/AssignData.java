@@ -1,8 +1,12 @@
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+=======
+import java.util.Arrays;
+>>>>>>> 3adcb6d (faulty indexing)
 import java.util.Scanner;
 
 public class AssignData extends DataEntry{
