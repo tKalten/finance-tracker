@@ -1,0 +1,12 @@
+Date   Money   Reason
+2019-01-01  200.0    urlaub
+2019-04-20  25.0    essen gehen
+2019-06-20  24.5    klopeinersee
+2019-06-20  33.5    wurschtsemmerl
+2019-07-01  3.0    abendessen
+2019-07-01  5.0    essen
+2019-07-01  10.0    supermarkt
+2020-07-16  86.0    flug
+2020-07-17  32.0    pizza
+2020-07-17  35.2    kebab
+2020-09-20  54.0    mapfimapfi
