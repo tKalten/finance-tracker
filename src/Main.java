@@ -13,7 +13,7 @@ public class Main {
 	static ReadFiles financeDataIn;
 
     public static void main(String[] args) throws IOException {
-		financeFolder = "test_lists";
+		financeFolder = "expenses";
 		folder = new File(financeFolder);
 		assignFinanceData = new AssignData();
 
